@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Niranjan — Data Scientist</title>
+<meta name="description" content="Data Scientist passionate about ML, NLP, and turning complex data into clear decisions." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #ffffff;
+  --fg: #09090b;
+  --muted: #71717a;
+  --muted-bg: #f4f4f5;
+  --border: #e4e4e7;
+  --card: #ffffff;
+  --badge-bg: #f4f4f5;
+  --badge-fg: #3f3f46;
+  --blue: #3b82f6;
+  --sans: 'Inter', system-ui, sans-serif;
+}
+
+.dark {
+  --bg: #09090b;
+  --fg: #fafafa;
+  --muted: #a1a1aa;
+  --muted-bg: #27272a;
+  --border: #27272a;
+  --card: #09090b;
+  --badge-bg: #27272a;
+  --badge-fg: #d4d4d8;
+  --blue: #60a5fa;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100vh;
+  transition: background 0.2s, color 0.2s;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 672px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 8rem;
+}
+
+main { display: flex; flex-direction: column; gap: 2.5rem; }
+
+section { display: flex; flex-direction: column; gap: 0.75rem; }
+
+h2 { font-size: 1.25rem; font-weight: 700; color: var(--fg); }
+
+/* Hero */
+.hero-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+.hero-text { flex: 1; }
+.hero-name { font-size: 2rem; font-weight: 700; letter-spacing: -0.03em; color: var(--fg); margin-bottom: 0.5rem; line-height: 1.1; }
+@media (min-width: 640px) { .hero-name { font-size: 3rem; } }
+.hero-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.7; max-width: 480px; }
+.hero-desc a { color: var(--blue); text-decoration: none; }
+.hero-desc a:hover { text-decoration: underline; }
+
+.avatar {
+  width: 7rem; height: 7rem; border-radius: 50%;
+  border: 1px solid var(--border); background: var(--muted-bg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.5rem; font-weight: 700; color: var(--muted); flex-shrink: 0;
+}
+
+/* About */
+.prose { font-size: 0.875rem; color: var(--muted); line-height: 1.75; }
+.prose a { color: var(--blue); text-decoration: none; }
+
+/* Timeline */
+.timeline { display: flex; flex-direction: column; gap: 0.25rem; }
+.timeline-item {
+  display: flex; align-items: center; gap: 1rem; padding: 0.65rem 0.75rem;
+  border-radius: 8px; text-decoration: none; color: inherit; transition: background 0.15s;
+}
+.timeline-item:hover { background: var(--muted-bg); }
+.timeline-logo {
+  width: 3rem; height: 3rem; border-radius: 50%; border: 1px solid var(--border);
+  background: var(--muted-bg); display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; flex-shrink: 0; overflow: hidden;
+}
+.timeline-body { flex: 1; min-width: 0; }
+.timeline-org { font-size: 0.8rem; font-weight: 600; color: var(--fg); }
+.timeline-role { font-size: 0.72rem; color: var(--muted); }
+.timeline-sub { font-size: 0.7rem; color: var(--muted); }
+.timeline-date { font-size: 0.7rem; color: var(--muted); white-space: nowrap; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+
+/* Skills */
+.skills-wrap { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.skill-badge {
+  display: inline-flex; align-items: center; border-radius: 999px;
+  background: var(--fg); color: var(--bg); font-size: 0.72rem; font-weight: 600;
+  padding: 0.22rem 0.75rem; transition: opacity 0.15s; cursor: default;
+}
+.skill-badge:hover { opacity: 0.75; }
+
+/* Projects */
+.section-intro { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+.section-pill { display: inline-block; background: var(--fg); color: var(--bg); font-size: 0.75rem; font-weight: 500; padding: 0.2rem 0.75rem; border-radius: 6px; }
+.section-title-lg { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; color: var(--fg); }
+@media (min-width: 640px) { .section-title-lg { font-size: 2.2rem; } }
+
+.projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+@media (max-width: 520px) { .projects-grid { grid-template-columns: 1fr; } }
+
+.project-card {
+  border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
+  text-decoration: none; color: inherit; display: flex; flex-direction: column;
+  transition: box-shadow 0.2s; background: var(--card);
+}
+.project-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+.dark .project-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+
+.project-thumb {
+  height: 9rem; width: 100%; background: var(--muted-bg);
+  display: flex; align-items: center; justify-content: center; font-size: 2.5rem; flex-shrink: 0;
+}
+.project-body { padding: 0.6rem 0.75rem 0.75rem; flex: 1; display: flex; flex-direction: column; gap: 0.3rem; }
+.project-title { font-size: 0.88rem; font-weight: 500; color: var(--fg); line-height: 1.35; }
+.project-date { font-size: 0.68rem; color: var(--muted); }
+.project-desc { font-size: 0.75rem; color: var(--muted); line-height: 1.6; flex: 1; }
+.project-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.3rem; }
+.tag-sm { font-size: 0.63rem; font-weight: 600; background: var(--badge-bg); color: var(--badge-fg); padding: 0.1rem 0.45rem; border-radius: 4px; }
+
+/* Blog / Publications */
+.pub-wrap { position: relative; }
+.pub-list { border-left: 1px solid var(--border); margin-left: 1.75rem; display: flex; flex-direction: column; }
+.pub-item { position: relative; padding: 0.9rem 0 0.9rem 1.5rem; border-bottom: 1px dashed var(--border); display: flex; flex-direction: column; gap: 0.2rem; }
+.pub-item:last-child { border-bottom: none; }
+.pub-dot {
+  position: absolute; left: -1.85rem; top: 1.1rem;
+  width: 0.6rem; height: 0.6rem; border-radius: 50%;
+  background: var(--border); border: 2px solid var(--bg);
+}
+.pub-year { font-size: 0.68rem; color: var(--muted); }
+.pub-title { font-size: 0.85rem; font-weight: 600; color: var(--fg); line-height: 1.4; }
+.pub-meta { font-size: 0.75rem; color: var(--muted); }
+
+/* Contact */
+.contact-wrap { text-align: center; padding: 2.5rem 0.5rem; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+.contact-wrap p { font-size: 1rem; color: var(--muted); max-width: 480px; line-height: 1.75; }
+.contact-wrap a { color: var(--blue); text-decoration: none; }
+.contact-wrap a:hover { text-decoration: underline; }
+
+/* Floating Dock */
+.dock {
+  position: fixed; bottom: 1.75rem; left: 50%; transform: translateX(-50%);
+  z-index: 100; display: flex; align-items: center; gap: 0.25rem;
+  padding: 0.3rem 0.5rem; border-radius: 999px;
+  background: var(--bg); border: 1px solid var(--border);
+  box-shadow: 0 0 0 1px rgba(0,0,0,.03), 0 2px 4px rgba(0,0,0,.05), 0 8px 24px rgba(0,0,0,.07);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.dark .dock { box-shadow: 0 0 0 1px rgba(255,255,255,.05), 0 -20px 80px -20px rgba(255,255,255,.08) inset; }
+
+.dock-btn {
+  width: 2.25rem; height: 2.25rem; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  border: none; background: transparent; color: var(--fg);
+  cursor: pointer; text-decoration: none; transition: background 0.15s;
+  position: relative;
+}
+.dock-btn:hover { background: var(--muted-bg); }
+.dock-btn svg { width: 1.05rem; height: 1.05rem; }
+
+.dock-sep { width: 1px; height: 1.5rem; background: var(--border); flex-shrink: 0; margin: 0 0.15rem; }
+
+.dock-btn::after {
+  content: attr(data-tip);
+  position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+  background: var(--fg); color: var(--bg); font-size: 0.62rem; font-weight: 500;
+  padding: 0.18rem 0.45rem; border-radius: 4px; white-space: nowrap;
+  opacity: 0; pointer-events: none; transition: opacity 0.15s; font-family: var(--sans);
+}
+.dock-btn:hover::after { opacity: 1; }
+
+/* Fade up */
+.fade-up { opacity: 0; transform: translateY(14px); animation: fadeUp 0.5s ease forwards; }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+section:nth-child(1) .fade-up { animation-delay: 0.05s; }
+section:nth-child(2) .fade-up { animation-delay: 0.1s; }
+section:nth-child(3) .fade-up { animation-delay: 0.15s; }
+section:nth-child(4) .fade-up { animation-delay: 0.2s; }
+section:nth-child(5) .fade-up { animation-delay: 0.25s; }
+section:nth-child(6) .fade-up { animation-delay: 0.3s; }
+section:nth-child(7) .fade-up { animation-delay: 0.35s; }
+section:nth-child(8) .fade-up { animation-delay: 0.4s; }
+</style>
+</head>
+<body>
+
+<div class="container">
+<main>
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="hero-row fade-up">
+      <div class="hero-text">
+        <div class="hero-name">Hi, I'm Niranjan 👋</div>
+        <p class="hero-desc">
+          Data Scientist building ML solutions that scale. I use machine learning, NLP, and data engineering to turn messy, complex data into decisions that actually matter.
+        </p>
+      </div>
+      <div class="avatar">N</div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2 class="fade-up">About</h2>
+    <div class="fade-up">
+      <p class="prose">
+        I'm a data scientist with a passion for finding signal in noise. I work across the full pipeline — from wrangling raw datasets and building predictive models to communicating findings that move the needle. My work spans fintech, retail, and NLP. I believe good data science is equal parts rigour and storytelling. Based in Mumbai, working globally.
+      </p>
+    </div>
+  </section>
+
+  <!-- Work Experience -->
+  <section id="work">
+    <h2 class="fade-up">Work Experience</h2>
+    <div class="timeline fade-up">
+      <a class="timeline-item" href="#">
+        <div class="timeline-logo">🏢</div>
+        <div class="timeline-body">
+          <div class="timeline-org">Your Company Name</div>
+          <div class="timeline-role">Senior Data Scientist</div>
+        </div>
+        <div class="timeline-date">Jan 2024 – Present</div>
+      </a>
+      <a class="timeline-item" href="#">
+        <div class="timeline-logo">🏦</div>
+        <div class="timeline-body">
+          <div class="timeline-org">FinTech Startup</div>
+          <div class="timeline-role">Data Scientist</div>
+        </div>
+        <div class="timeline-date">Jun 2022 – Dec 2023</div>
+      </a>
+      <a class="timeline-item" href="#">
+        <div class="timeline-logo">📊</div>
+        <div class="timeline-body">
+          <div class="timeline-org">Data Insights Co.</div>
+          <div class="timeline-role">Junior Data Analyst</div>
+        </div>
+        <div class="timeline-date">Aug 2020 – May 2022</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <h2 class="fade-up">Education</h2>
+    <div class="timeline fade-up">
+      <a class="timeline-item" href="#">
+        <div class="timeline-logo">🎓</div>
+        <div class="timeline-body">
+          <div class="timeline-org">Your University</div>
+          <div class="timeline-role">B.Tech / M.Sc. — Your Degree</div>
+          <div class="timeline-sub">Your Department</div>
+        </div>
+        <div class="timeline-date">2016 – 2020</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2 class="fade-up">Skills</h2>
+    <div class="skills-wrap fade-up">
+      <span class="skill-badge">Python</span>
+      <span class="skill-badge">SQL</span>
+      <span class="skill-badge">Machine Learning</span>
+      <span class="skill-badge">Deep Learning</span>
+      <span class="skill-badge">NLP</span>
+      <span class="skill-badge">PyTorch</span>
+      <span class="skill-badge">Scikit-learn</span>
+      <span class="skill-badge">XGBoost</span>
+      <span class="skill-badge">Spark</span>
+      <span class="skill-badge">dbt</span>
+      <span class="skill-badge">Airflow</span>
+      <span class="skill-badge">MLflow</span>
+      <span class="skill-badge">Docker</span>
+      <span class="skill-badge">Tableau</span>
+      <span class="skill-badge">Statistics</span>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="section-intro fade-up">
+      <div class="section-pill">Projects</div>
+      <div class="section-title-lg">Check out my latest work</div>
+    </div>
+    <div class="projects-grid fade-up">
+      <a class="project-card" href="#">
+        <div class="project-thumb">📈</div>
+        <div class="project-body">
+          <div class="project-title">Demand Prediction at Scale</div>
+          <time class="project-date">Jan 2024 – Mar 2024</time>
+          <div class="project-desc">End-to-end forecasting pipeline reducing inventory waste by 23% across 400+ SKUs using gradient boosting on time-series data.</div>
+          <div class="project-tags">
+            <span class="tag-sm">XGBoost</span><span class="tag-sm">Airflow</span><span class="tag-sm">BigQuery</span>
+          </div>
+        </div>
+      </a>
+      <a class="project-card" href="#">
+        <div class="project-thumb">🤖</div>
+        <div class="project-body">
+          <div class="project-title">Customer Sentiment Engine</div>
+          <time class="project-date">Aug 2023 – Nov 2023</time>
+          <div class="project-desc">Real-time classifier processing 50K+ support tickets/day, cutting escalation response time by 40%.</div>
+          <div class="project-tags">
+            <span class="tag-sm">BERT</span><span class="tag-sm">FastAPI</span><span class="tag-sm">Kafka</span>
+          </div>
+        </div>
+      </a>
+      <a class="project-card" href="#">
+        <div class="project-thumb">📊</div>
+        <div class="project-body">
+          <div class="project-title">Churn Propensity Model</div>
+          <time class="project-date">Mar 2023 – Jun 2023</time>
+          <div class="project-desc">Churn prediction with SHAP explanations enabling targeted retention — improved retention rate by 18%.</div>
+          <div class="project-tags">
+            <span class="tag-sm">Scikit-learn</span><span class="tag-sm">SHAP</span><span class="tag-sm">MLflow</span>
+          </div>
+        </div>
+      </a>
+      <a class="project-card" href="#">
+        <div class="project-thumb">🌐</div>
+        <div class="project-body">
+          <div class="project-title">Multilingual Doc Classifier</div>
+          <time class="project-date">Oct 2022 – Jan 2023</time>
+          <div class="project-desc">Zero-shot classification across 12 languages using cross-lingual transformers for a legal tech startup.</div>
+          <div class="project-tags">
+            <span class="tag-sm">mBERT</span><span class="tag-sm">HuggingFace</span><span class="tag-sm">Docker</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section id="blog">
+    <div class="section-intro fade-up">
+      <div class="section-pill">Writing</div>
+      <div class="section-title-lg">Blog & Articles</div>
+    </div>
+    <div class="pub-wrap fade-up">
+      <div class="pub-list">
+        <div class="pub-item">
+          <div class="pub-dot"></div>
+          <div class="pub-year">Mar 2025</div>
+          <div class="pub-title">Why most dashboards fail — and how to fix them</div>
+          <div class="pub-meta">Personal Blog · 6 min read</div>
+        </div>
+        <div class="pub-item">
+          <div class="pub-dot"></div>
+          <div class="pub-year">Jan 2025</div>
+          <div class="pub-title">SHAP values explained without the math jargon</div>
+          <div class="pub-meta">Towards Data Science · 8 min read</div>
+        </div>
+        <div class="pub-item">
+          <div class="pub-dot"></div>
+          <div class="pub-year">Nov 2024</div>
+          <div class="pub-title">The underrated skill in data science: knowing when to stop</div>
+          <div class="pub-meta">Personal Blog · 5 min read</div>
+        </div>
+        <div class="pub-item">
+          <div class="pub-dot"></div>
+          <div class="pub-year">Sep 2024</div>
+          <div class="pub-title">Building a production ML pipeline on a small team's budget</div>
+          <div class="pub-meta">Medium · 10 min read</div>
+        </div>
+        <div class="pub-item">
+          <div class="pub-dot"></div>
+          <div class="pub-year">Jul 2024</div>
+          <div class="pub-title">Feature engineering tricks I wish I knew earlier</div>
+          <div class="pub-meta">Towards Data Science · 7 min read</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="contact-wrap fade-up">
+      <div class="section-pill">Contact</div>
+      <div class="section-title-lg">Get in Touch</div>
+      <p>
+        Want to chat? Shoot me a DM on
+        <a href="#">Twitter / X</a> or
+        <a href="#">LinkedIn</a>
+        and I'll respond whenever I can. Or drop me an email at
+        <a href="/cdn-cgi/l/email-protection#3a5453485b54505b547a5f425b574a565f14595557"><span class="__cf_email__" data-cfemail="bcd2d5ceddd2d6ddd2fcd9c4ddd1ccd0d992dfd3d1">[email&#160;protected]</span></a>.
+      </p>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<!-- Floating Dock -->
+<nav class="dock">
+  <a class="dock-btn" href="#hero" data-tip="Home">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+  </a>
+  <a class="dock-btn" href="#projects" data-tip="Projects">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+  </a>
+  <a class="dock-btn" href="#blog" data-tip="Blog">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h4"/><path d="M2 10h4"/><path d="M2 14h4"/><path d="M2 18h4"/><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M16 2v20"/></svg>
+  </a>
+  <div class="dock-sep"></div>
+  <a class="dock-btn" href="https://github.com" data-tip="GitHub" target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+  </a>
+  <a class="dock-btn" href="https://linkedin.com" data-tip="LinkedIn" target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+  </a>
+  <a class="dock-btn" href="https://x.com" data-tip="Twitter / X" target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+  </a>
+  <div class="dock-sep"></div>
+  <button class="dock-btn" id="theme-toggle" data-tip="Toggle theme">
+    <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-14.07 1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2m-4.93-7.07-1.41 1.41M6.34 17.66l-1.41 1.41"/></svg>
+    <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+  </button>
+</nav>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const root = document.documentElement;
+  const toggle = document.getElementById('theme-toggle');
+  const sun = document.getElementById('sun-icon');
+  const moon = document.getElementById('moon-icon');
+  const saved = localStorage.getItem('theme');
+  let dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  function applyTheme() {
+    root.classList.toggle('dark', dark);
+    sun.style.display = dark ? 'none
