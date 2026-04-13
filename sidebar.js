@@ -16,7 +16,7 @@ function renderSidebar(activePage) {
 
   document.getElementById('sidebar').innerHTML = `
     <div 
-      class="sidebar-avatar"><img src="/images/avatar.png" alt="Avatar" />
+      class="sidebar-avatar"><img src="https://tinyjpg.com/images/social/website.jpg" alt="Avatar" />
     </div>
 
     <div>
