@@ -15,7 +15,10 @@ function renderSidebar(activePage) {
     </li>`).join('');
 
   document.getElementById('sidebar').innerHTML = `
-    <div class="sidebar-avatar">N</div>
+    <div class="sidebar-avatar">
+      <img src="/images/avatar.png" alt="Avatar" />
+    </div>
+
 
 
     <div>
