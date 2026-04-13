@@ -15,7 +15,9 @@ function renderSidebar(activePage) {
     </li>`).join('');
 
   document.getElementById('sidebar').innerHTML = `
-    <div class="sidebar-avatar"><img src="/images/avatar.png" alt="Avatar" /></div>
+    <div 
+      class="sidebar-avatar"><img src="niranjan-pm.github.io/images/avatar.png" alt="Avatar" />
+    </div>
 
     <div>
       <div class="sidebar-name">Niranjan</div>
