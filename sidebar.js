@@ -15,9 +15,10 @@ function renderSidebar(activePage) {
     </li>`).join('');
 
   document.getElementById('sidebar').innerHTML = `
-    <div 
-      class="sidebar-avatar"><img src="https://tinyjpg.com/images/social/website.jpg" alt="Avatar" />
+    <div class="sidebar-avatar">
+      <img src="/images/avatar.png" alt="Avatar" />
     </div>
+
 
     <div>
       <div class="sidebar-name">Niranjan</div>
